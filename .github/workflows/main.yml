@@ -48,8 +48,8 @@ jobs:
       id: docker
       run: |
           docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
-          run: echo ::set-output name=status::success
-          continue-on-error: true
+          echo ::set-output name=status::success
+      continue-on-error: true
     
     - name: status check
       if: steps.hello.outputs.status == 'success'
