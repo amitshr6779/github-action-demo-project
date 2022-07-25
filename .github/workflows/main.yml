@@ -46,13 +46,10 @@ jobs:
       
     - name: Docker Push
       id: docker
-      run: |
-          docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
-          echo ::set-output name=status::success
-      continue-on-error: true
+      run: docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
     
     - name: status check
-      if: steps.hello.outputs.status == 'success'
+      if: always()
       uses: dawidd6/action-send-mail@v2
       with:
         # mail server settings
