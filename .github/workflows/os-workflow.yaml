@@ -4,7 +4,7 @@ on:
 
 jobs:
   windows-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout-repo
         uses: action/checkout@v2
