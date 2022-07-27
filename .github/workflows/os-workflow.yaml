@@ -1,17 +1,15 @@
 name: 2-Jobs-diffrent-OS
 on: 
-  push:
-    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   windows-job:
     runs-on: windows-latest
     steps:
-      - name: step1: checkout-repo
-        used: action/checkout@v2
+      - name: checkout-repo
+        uses: action/checkout@v2
       
-      - name: steps: check files
+      - name: check files
         run: |
          pwd
          ls
